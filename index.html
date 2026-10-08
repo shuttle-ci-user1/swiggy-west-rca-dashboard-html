@@ -3,19 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brand RCA Search</title>
+<title>West Brand RCA Search</title>
 <style>
-:root{--bg:#f7f8fa;--card:#fff;--ink:#172238;--muted:#667085;--line:#e6e8ef;--green:#0f766e;--red:#b42318}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#172238;--muted:#667085;--line:#e6e8ef;--green:#0f766e;--red:#b42318;--amber:#b45309;--blue:#1d4ed8}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,Arial,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:24px}
-header{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end;margin-bottom:18px}
-h1{font-size:24px;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:24px}
+header{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end;margin-bottom:16px}
+h1{font-size:26px;margin:0}
 .sub{color:var(--muted)}
-.searchbar{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-.searchbar input{flex:1;border:0;outline:0;font-size:16px}
-.hint{color:var(--muted);font-size:12px;margin-top:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:18px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+input,select,button{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;background:#fff}
+input[type=search]{min-width:280px;flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi .label{color:var(--muted);font-size:12px}
+.kpi .value{font-size:20px;font-weight:700;margin-top:4px}
+.delta{font-size:12px;margin-top:3px}
+.up{color:var(--green);font-weight:600}.down{color:var(--red);font-weight:600}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
 .card h3{margin:0 0 8px;font-size:16px}
 table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -23,97 +29,218 @@ th,td{padding:9px 10px;border-bottom:1px solid #f2f4f7;text-align:right;font-var
 th:first-child,td:first-child{text-align:left}
 th{background:#f9fafb;font-size:12px;color:#475467;text-transform:uppercase}
 tr:last-child td{border-bottom:0}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:18px}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-.kpi .label{color:var(--muted);font-size:12px}
-.kpi .value{font-size:20px;font-weight:700;margin-top:4px}
-.delta{font-size:12px;margin-top:3px}
-.up{color:var(--green);font-weight:600}.down{color:var(--red);font-weight:600}
+tr.click{cursor:pointer}
+tr.click:hover{background:#f9fafb}
 .pill{display:inline-block;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:600}
-.pill.warn{background:#fff6e6;color:#b45309}
 .pill.bad{background:#fee4e2;color:#b42318}
-.note{background:#eff8ff;border:1px solid #b2ddff;border-radius:14px;padding:14px;margin-top:18px}
+.pill.warn{background:#fff6e6;color:#b45309}
+.pill.ok{background:#e6f6f3;color:#0f766e}
+.pill.muted{background:#f2f4f7;color:#475467}
+.note{background:#eff8ff;border:1px solid #b2ddff;border-radius:14px;padding:14px;margin-top:14px}
+.callout{background:#fffaeb;border:1px solid #fedf89;border-radius:14px;padding:14px;margin-top:14px}
 .footer{color:var(--muted);font-size:12px;margin-top:20px}
+.hidden{display:none}
+pre{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:10px;overflow:auto}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div>
-    <h1>Brand RCA Search</h1>
-    <div class="sub">Type anything: brand, funnel, CPC, discounts, RID, month, etc.</div>
+    <h1>West Brand RCA Search</h1>
+    <div class="sub">All brands under <strong>devlekar.a@swiggy.in</strong> — searchable, ranked, and action-ready</div>
   </div>
-  <div class="searchbar">
-    <input id="search" type="search" placeholder="Search the RCA…" autocomplete="off">
-  </div>
-  <div class="hint">Try: Sep orders, funnel, CPC, discounts, RID, month trend, ops</div>
+  <div class="sub">Updated: <span id="updated"></span></div>
 </header>
 
-<div class="kpis">
-  <div class="kpi"><div class="label">Sep orders vs Aug</div><div class="value">17,001</div><div class="delta down">-9.1% MoM</div></div>
-  <div class="kpi"><div class="label">Sep GMV vs Aug</div><div class="value">₹18.68M</div><div class="delta down">-9.5% MoM</div></div>
-  <div class="kpi"><div class="label">T-1 orders vs SDLW1</div><div class="value">599</div><div class="delta down">-5.5%</div></div>
-  <div class="kpi"><div class="label">T-1 GMV vs SDLW1</div><div class="value">₹649,060</div><div class="delta down">-13.1%</div></div>
-  <div class="kpi"><div class="label">Sep M2O vs Aug</div><div class="value">10.51%</div><div class="delta down">-9.2% relative</div></div>
-  <div class="kpi"><div class="label">Sep ads ROI vs Aug</div><div class="value">5.3</div><div class="delta down">-8.6% relative</div></div>
+<div class="toolbar">
+  <input id="search" type="search" placeholder="Search brand, KAM, cuisine, RID, CPC, discount, funnel…">
+  <select id="kam"><option value="">All KAMs</option></select>
+  <select id="city"><option value="">All Cities</option></select>
+  <select id="cuisine"><option value="">All Cuisines</option></select>
+  <select id="status"><option value="">All status</option><option value="full">Full RCA</option><option value="loss">Loss row</option></select>
 </div>
-
-<div class="note"><strong>Scope:</strong> This dashboard is built from the uploaded workbook only. It does not include cuisine, same-cuisine restaurant, same-cuisine brand, city, platform, or India 1 comparison series.</div>
 
 <div class="grid">
   <div class="card">
-    <h3>Search results</h3>
-    <table id="metrics">
-      <thead><tr><th>Search Term</th><th>Metric</th><th>T-1 Oct 7</th><th>SDLW1 Sep 30</th><th>Δ vs SDLW1</th><th>Meaning / Next Step</th></tr></thead>
-      <tbody>
-        <tr><td>orders</td><td>Orders</td><td>599</td><td>634</td><td class="down">-5.5%</td><td>Day-level orders are down; check funnel and discount depth.</td></tr>
-        <tr><td>gmv</td><td>GMV</td><td>649060</td><td>747301</td><td class="down">-13.1%</td><td>GMV drop is sharper than orders; check AOV and discount mix.</td></tr>
-        <tr><td>aov</td><td>Net AOV</td><td>1005</td><td>1100</td><td class="down">-8.6%</td><td>AOV is down; review combo, pricing, and item mix.</td></tr>
-        <tr><td>menu</td><td>Menu sessions</td><td>4944</td><td>6116</td><td class="down">-19.2%</td><td>Menu sessions are down sharply; check visibility and CPC/CBA.</td></tr>
-        <tr><td>cart</td><td>Cart sessions</td><td>1062</td><td>1146</td><td class="down">-7.3%</td><td>Cart sessions are down; check menu-to-cart friction.</td></tr>
-        <tr><td>payment</td><td>Payment sessions</td><td>693</td><td>756</td><td class="down">-8.3%</td><td>Payment sessions are down; check payment UX and coupon visibility.</td></tr>
-        <tr><td>order sessions</td><td>Order sessions</td><td>582</td><td>617</td><td class="down">-5.7%</td><td>Order sessions are down; check checkout friction.</td></tr>
-        <tr><td>m2c</td><td>M2C</td><td>21.48%</td><td>18.74%</td><td class="up">+14.6%</td><td>Menu-to-cart improved on T-1.</td></tr>
-        <tr><td>c2o</td><td>C2O</td><td>54.80%</td><td>53.84%</td><td class="up">+1.8%</td><td>Cart-to-order improved slightly.</td></tr>
-        <tr><td>p2o</td><td>P2O</td><td>83.98%</td><td>81.61%</td><td class="up">+2.9%</td><td>Payment-to-order improved.</td></tr>
-        <tr><td>m2o</td><td>M2O</td><td>11.77%</td><td>10.09%</td><td class="up">+16.7%</td><td>Overall conversion improved on T-1.</td></tr>
-        <tr><td>cpc</td><td>CPC impressions</td><td>95990</td><td>98505</td><td class="down">-2.6%</td><td>CPC is active but impressions are down.</td></tr>
-        <tr><td>roi</td><td>ROI</td><td>5.9</td><td>4.8</td><td class="up">+22.9%</td><td>ROI is up; likely tighter spend rather than strong growth.</td></tr>
-        <tr><td>discounts</td><td>Total discounts</td><td>77544</td><td>85680</td><td class="down">-9.5%</td><td>Discounts are lower; may affect conversion.</td></tr>
-        <tr><td>coupon</td><td>Coupon burn</td><td>75776</td><td>84844</td><td class="down">-10.7%</td><td>Coupon burn is lower.</td></tr>
-        <tr><td>cdpo</td><td>CDPO</td><td>129</td><td>135</td><td class="down">-4.4%</td><td>Coupon discount per order is down.</td></tr>
-        <tr><td>availability</td><td>Availability</td><td>99.88%</td><td>98.57%</td><td class="up">+1.3%</td><td>Availability is healthy.</td></tr>
-        <tr><td>prep time</td><td>EST prep time</td><td>12.9</td><td>13.8</td><td class="down">-6.5%</td><td>Prep time is healthy.</td></tr>
-      </tbody>
+    <h3>Brand list &amp; degrowth ranking</h3>
+    <table id="brands">
+      <thead><tr><th>Brand</th><th>KAM</th><th>City</th><th>Cuisine</th><th>GMV loss</th><th>Order loss</th><th>Status</th></tr></thead>
+      <tbody></tbody>
     </table>
   </div>
-
   <div class="card">
-    <h3>Recommended interventions</h3>
-    <ul>
-      <li>Fix <strong>new-user M2C</strong> first: audit visibility, first-order coupon exposure, search/menu placement, photos, ratings, bestseller placement, minimum-order friction.</li>
-      <li>Once RID × date data is available, rank RIDs by contribution and % change, then isolate top 5 declining RIDs by GMV loss.</li>
-      <li>Re-tune CPC/CBA by zone, keyword intent and daypart. Avoid blanket burn increase.</li>
-      <li>Use discount depth surgically in high-demand, high-conversion RIDs.</li>
-      <li>Improve lunch-specific conversion.</li>
-      <li>Keep operations stable.</li>
-    </ul>
+    <h3>Selected brand RCA</h3>
+    <div id="selected"></div>
   </div>
 </div>
 
-<div class="footer">Built from the uploaded workbook. For full West-branch automation, connect a daily data feed with brand → cuisine → city → RID mapping and RID × metric × date data.</div>
+<div class="kpis" id="kpis"></div>
+
+<div class="grid">
+  <div class="card"><h3>Funnel break</h3><table id="funnel"></table></div>
+  <div class="card"><h3>Ads, discounts &amp; burn</h3><table id="ads"></table></div>
+  <div class="card"><h3>Operational health</h3><table id="ops"></table></div>
+  <div class="card"><h3>Recommended interventions</h3><ul id="actions"></ul></div>
+  <div class="card"><h3>Benchmarks</h3><table id="bench"></table></div>
+  <div class="card"><h3>Daily feed &amp; automation</h3>
+    <p>Replace <code>data.json</code> daily to make this self-updating. No code change needed.</p>
+    <pre>date,brand,parent_id,kam,city,cuisine,
+orders,prev_orders,gmv,prev_gmv,
+m2c,prev_m2c,c2o,prev_c2o,p2o,prev_p2o,m2o,prev_m2o,
+cpc_impressions,prev_cpc_impressions,cpc_roi,prev_cpc_roi,
+cba_configured,cpc_configured,
+discounts,prev_discounts,coupon_burn,prev_coupon_burn,cdpo,prev_cdpo,
+availability,prev_availability,prep_time,prev_prep_time</pre>
+    <p>Upload a day-level CSV below. It refreshes the dashboard immediately.</p>
+    <input id="csv" type="file" accept=".csv,.txt">
+    <div class="note"><strong>Daily flow:</strong> 1) Run the West RCA query 2) export CSV 3) push as <code>data.json</code> 4) dashboard auto-refreshes on load. For Slack: add a scheduled job posting the top 10 degrowth brands.</div>
+  </div>
+</div>
+
+<div class="footer">Scope: devlekar.a@swiggy.in — West / Gourmet. Built from the IDDI IU Loss artifact + uploaded workbook. Brand-level full metrics update when daily feed is connected.</div>
 </div>
 <script>
-const input=document.getElementById('search');
-const rows=Array.from(document.querySelectorAll('#metrics tbody tr'));
-function render(){
-  const q=input.value.trim().toLowerCase();
-  rows.forEach(r=>{
-    const text=r.innerText.toLowerCase();
-    r.classList.toggle('hidden', q && !text.includes(q));
-  });
+let DATA=null;
+let BRAND=null;
+const fmt=(n)=>n==null?'—':new Intl.NumberFormat('en-IN').format(n);
+const pct=(n)=>n==null?'—':(n*100).toFixed(2)+'%';
+const money=(n)=>n==null?'—':'₹'+fmt(Math.round(n));
+const rel=(a,b)=>(a==null||b==null||b===0)?null:(a-b)/b;
+const cls=(d)=>d==null?'':(d<0?'down':'up');
+function dTxt(d){return d==null?'':(d<0?fmt(Math.round(d*1000)/10)+'%':fmt(Math.round(d*1000)/10)+'%');}
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function pctCell(n,prev){const d=rel(n,prev);return `<td class="${cls(d)}">${pct(n)} ${d==null?'':dTxt(d)}</td>`;}
+function valCell(n,prev,isMoney){const d=rel(n,prev);return `<td class="${cls(d)}">${isMoney?money(n):fmt(n)} ${d==null?'':dTxt(d)}</td>`;}
+function uniq(k){const s=new Set(DATA.brands.map(b=>b[k]).filter(Boolean));return [...s].sort();}
+function brandLoss(b){return b.loss_2026_09_13?.gmv_loss??b.loss_2026_09_14?.gmv_loss??null;}
+function orderLoss(b){return b.loss_2026_09_13?.order_loss??b.loss_2026_09_14?.order_loss??null;}
+function renderFilters(){
+  document.getElementById('updated').textContent=DATA.updated_at;
+  const kam=document.getElementById('kam'),city=document.getElementById('city'),cui=document.getElementById('cuisine');
+  kam.innerHTML='<option value="">All KAMs</option>'+uniq('kam').map(x=>`<option>${esc(x)}</option>`).join('');
+  city.innerHTML='<option value="">All Cities</option>'+uniq('city').map(x=>`<option>${esc(x)}</option>`).join('');
+  cui.innerHTML='<option value="">All Cuisines</option>'+uniq('cuisine').map(x=>`<option>${esc(x)}</option>`).join('');
 }
-input.addEventListener('input',render);
+function renderKpis(b){
+  const d=b?.daily||{};
+  const oRel=rel(d.orders,d.prev_orders), gRel=rel(d.gmv,d.prev_gmv), mRel=rel(d.m2o,d.prev_m2o), roiRel=rel(d.cpc_roi,d.prev_cpc_roi);
+  document.getElementById('kpis').innerHTML=`
+    <div class="kpi"><div class="label">Selected brand</div><div class="value">${esc(b?.brand||'—')}</div><div class="delta">${esc(b?.cuisine||'')}</div></div>
+    <div class="kpi"><div class="label">Orders</div><div class="value">${fmt(d.orders)}</div><div class="delta ${cls(oRel)}">${d.orders?dTxt(oRel):''}</div></div>
+    <div class="kpi"><div class="label">GMV</div><div class="value">${money(d.gmv)}</div><div class="delta ${cls(gRel)}">${d.gmv?dTxt(gRel):''}</div></div>
+    <div class="kpi"><div class="label">M2O</div><div class="value">${pct(d.m2o)}</div><div class="delta ${cls(mRel)}">${d.m2o?dTxt(mRel):''}</div></div>
+    <div class="kpi"><div class="label">CPC ROI</div><div class="value">${d.cpc_roi??'—'}</div><div class="delta ${cls(roiRel)}">${d.cpc_roi?dTxt(roiRel):''}</div></div>
+    <div class="kpi"><div class="label">Loss</div><div class="value">${money(brandLoss(b))}</div><div class="delta">${orderLoss(b)!=null?fmt(orderLoss(b))+' orders':''}</div></div>`;
+}
+function renderTables(b){
+  const d=b?.daily||{};
+  const f=document.getElementById('funnel');
+  f.innerHTML=`<thead><tr><th>Step</th><th>Current</th><th>Prev</th><th>Δ</th></tr></thead><tbody>
+    <tr><td>Menu sessions</td><td colspan="3">—</td></tr>
+    <tr><td>Cart sessions</td><td colspan="3">—</td></tr>
+    <tr><td>M2C</td>${pctCell(d.m2c,d.prev_m2c)}</tr>
+    <tr><td>C2O</td>${pctCell(d.c2o,d.prev_c2o)}</tr>
+    <tr><td>P2O</td>${pctCell(d.p2o,d.prev_p2o)}</tr>
+    <tr><td>M2O</td>${pctCell(d.m2o,d.prev_m2o)}</tr></tbody>`;
+  const a=document.getElementById('ads');
+  a.innerHTML=`<thead><tr><th>Metric</th><th>Current</th><th>Prev</th><th>Δ</th></tr></thead><tbody>
+    <tr><td>CPC impressions</td>${valCell(d.cpc_impressions,d.prev_cpc_impressions)}</tr>
+    <tr><td>CPC ROI</td>${valCell(d.cpc_roi,d.prev_cpc_roi)}</tr>
+    <tr><td>CPC configured</td><td colspan="3">${d.cpc_configured==null?'—':(d.cpc_configured?'Yes':'No')}</td></tr>
+    <tr><td>CBA configured</td><td colspan="3">${d.cba_configured==null?'—':(d.cba_configured?'Yes':'No')}</td></tr>
+    <tr><td>Discounts</td>${valCell(d.discounts,d.prev_discounts,true)}</tr>
+    <tr><td>Coupon burn</td>${valCell(d.coupon_burn,d.prev_coupon_burn,true)}</tr>
+    <tr><td>CDPO</td>${valCell(d.cdpo,d.prev_cdpo)}</tr></tbody>`;
+  const o=document.getElementById('ops');
+  o.innerHTML=`<thead><tr><th>Metric</th><th>Current</th><th>Prev</th><th>Δ</th></tr></thead><tbody>
+    <tr><td>Availability</td>${pctCell(d.availability,d.prev_availability)}</tr>
+    <tr><td>Prep time</td>${valCell(d.prep_time,d.prev_prep_time)}</tr>
+    <tr><td>Ratings</td><td colspan="3">—</td></tr>
+    <tr><td>Item OOS %</td><td colspan="3">—</td></tr></tbody>`;
+  const bench=document.getElementById('bench');
+  bench.innerHTML=`<thead><tr><th>Benchmark</th><th>Orders</th><th>GMV</th><th>M2O</th><th>CPC ROI</th></tr></thead><tbody>
+    <tr><td>West platform</td><td>${fmt(DATA.platform_benchmark?.orders)}</td><td>${money(DATA.platform_benchmark?.gmv)}</td><td>${pct(DATA.platform_benchmark?.m2o)}</td><td>${DATA.platform_benchmark?.cpc_roi??'—'}</td></tr>
+    <tr><td>India 1</td><td>${fmt(DATA.india1_benchmark?.orders)}</td><td>${money(DATA.india1_benchmark?.gmv)}</td><td>${pct(DATA.india1_benchmark?.m2o)}</td><td>${DATA.india1_benchmark?.cpc_roi??'—'}</td></tr></tbody>`;
+  const acts=document.getElementById('actions');
+  const list=[];
+  if(!d.orders) list.push('Connect daily feed for brand-level orders, sessions, funnel, ads, discounts and ops.');
+  if(d.m2o!=null && d.prev_m2o!=null && d.m2o<d.prev_m2o) list.push('M2O is down. Audit search visibility, first-order coupon exposure, menu photos, ratings, and bestseller placement.');
+  if(d.c2o!=null && d.prev_c2o!=null && d.c2o<d.prev_c2o) list.push('C2O is down. Check item-level pricing, combo offers, minimum order friction, and coupon visibility.');
+  if(d.cpc_roi!=null && d.prev_cpc_roi!=null && d.cpc_roi>d.prev_cpc_roi) list.push('ROI up with lower impressions. Re-tune CPC by zone/daypart; avoid blanket burn increase.');
+  if(d.cba_configured===false) list.push('CBA is not configured. Enable CBA to capture high-intent discovery.');
+  if(d.cpc_configured===false) list.push('CPC is not configured. Turn on CPC for search and menu placement.');
+  if(d.cdpo!=null && d.prev_cdpo!=null && d.cdpo<d.prev_cdpo) list.push('CDPO is down. Use surgical coupon depth in high-demand, high-conversion RIDs.');
+  if(d.prep_time!=null && d.prev_prep_time!=null && d.prep_time>d.prev_prep_time) list.push('Prep time is up. Check kitchen load and assign correct predicted prep time.');
+  if(b?.loss_2026_09_13?.order_loss>10) list.push('High order loss. Isolate top 5 declining RIDs by GMV contribution.');
+  if(!list.length) list.push('No major negative signal in current data. Keep watch on day-level and SDLW1 deltas.');
+  acts.innerHTML=list.map(x=>`<li>${esc(x)}</li>`).join('');
+}
+function renderBrands(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  const kam=document.getElementById('kam').value, city=document.getElementById('city').value, cui=document.getElementById('cuisine').value, st=document.getElementById('status').value;
+  const tb=document.querySelector('#brands tbody');
+  const rows=DATA.brands.filter(b=>{
+    const text=[b.brand,b.kam,b.city,b.cuisine,b.parent_id,b.daily?.rids?.map(r=>r.rid).join(' ')].filter(Boolean).join(' ').toLowerCase();
+    return (!q||text.includes(q)) && (!kam||b.kam===kam) && (!city||b.city===city) && (!cui||b.cuisine===cui) && (!st||b.data_status===st);
+  }).sort((a,b)=>(brandLoss(b)??0)-(brandLoss(a)??0));
+  tb.innerHTML=rows.map(b=>`
+    <tr class="click" data-brand="${esc(b.brand)}">
+      <td>${esc(b.brand)}</td><td>${esc(b.kam||'')}</td><td>${esc(b.city||'')}</td><td>${esc(b.cuisine||'')}</td>
+      <td>${money(brandLoss(b))}</td><td>${orderLoss(b)!=null?fmt(orderLoss(b)):'—'}</td>
+      <td><span class="pill ${b.data_status==='full'?'ok':'muted'}">${b.data_status}</span></td>
+    </tr>`).join('');
+}
+function selectBrand(name){
+  BRAND=DATA.brands.find(b=>b.brand===name)||null;
+  document.querySelectorAll('#brands tr').forEach(r=>r.style.background='');
+  const row=document.querySelector(`#brands tr[data-brand="${CSS.escape(name)}"]`);
+  if(row) row.style.background='#eef6ff';
+  document.getElementById('selected').innerHTML=BRAND?`
+    <div><strong>${esc(BRAND.brand)}</strong><br><span class="sub">${esc(BRAND.cuisine||'')} · ${esc(BRAND.city||'')} · KAM: ${esc(BRAND.kam||'')}</span></div>
+    <div class="note"><strong>RCA status:</strong> ${BRAND.data_status==='full'?'Full day-level metrics available.':'Loss row available. Connect daily feed for full funnel, ads, discounts, and RID detail.'}</div>`
+    :'<div class="sub">Select a brand from the table.</div>';
+  renderKpis(BRAND); renderTables(BRAND);
+}
+document.addEventListener('change',()=>renderBrands());
+document.addEventListener('input',()=>renderBrands());
+document.addEventListener('click',e=>{const tr=e.target.closest('tr.click'); if(tr) selectBrand(tr.dataset.brand);});
+document.getElementById('csv').addEventListener('change',async e=>{
+  const file=e.target.files[0]; if(!file) return;
+  const text=await file.text(); const lines=text.split(/\r?\n/).filter(Boolean);
+  const headers=lines[0].split(',').map(h=>h.trim());
+  const numeric=['orders','prev_orders','gmv','prev_gmv','cpc_impressions','prev_cpc_impressions','cpc_roi','prev_cpc_roi','discounts','prev_discounts','coupon_burn','prev_coupon_burn','cdpo','prev_cdpo'];
+  const pctCols=['m2c','prev_m2c','c2o','prev_c2o','p2o','prev_p2o','m2o','prev_m2o','availability','prev_availability'];
+  const boolCols=['cba_configured','cpc_configured'];
+  for(const line of lines.slice(1)){
+    const cells=line.split(',').map(c=>c.trim());
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=cells[i]);
+    if(!obj.brand) continue;
+    numeric.forEach(k=>obj[k]=obj[k]!==''&&!isNaN(obj[k])?Number(obj[k]):null);
+    pctCols.forEach(k=>obj[k]=obj[k]!==''&&!isNaN(obj[k])?Number(obj[k]):null);
+    boolCols.forEach(k=>obj[k]=obj[k]===true||obj[k]==='true'||obj[k]==='TRUE'||obj[k]===1);
+    const existing=DATA.brands.find(b=>b.brand.toLowerCase()===obj.brand.toLowerCase());
+    if(existing){
+      const {date,brand,parent_id,kam,city,cuisine,...daily}=obj;
+      existing.data_status='full';
+      if(parent_id) existing.parent_id=parent_id;
+      if(kam) existing.kam=kam;
+      if(city) existing.city=city;
+      if(cuisine) existing.cuisine=cuisine;
+      existing.daily={...existing.daily,...daily};
+    } else {
+      const {date,brand,parent_id,kam,city,cuisine,...daily}=obj;
+      DATA.brands.push({brand,parent_id,kam,city,cuisine,data_status:'full',daily});
+    }
+  }
+  DATA.updated_at=new Date().toISOString().slice(0,10);
+  renderFilters(); renderBrands();
+});
+(async()=>{
+  const res=await fetch('./data.json'); DATA=await res.json();
+  renderFilters(); renderBrands(); selectBrand(DATA.brands[0]?.brand);
+})();
 </script>
 </body>
 </html>
