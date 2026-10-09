@@ -1,0 +1,69 @@
+{
+ "part": "platform_benchmark",
+ "description": "West platform monthly benchmark (portfolio aggregate view)",
+ "benchmark": {
+  "label": "West platform (portfolio view)",
+  "note": "Aggregated from the uploaded monthly workbook (full month series) plus the West brand loss snapshot in data.json. Month-level platform benchmarks are pending a monthly platform feed.",
+  "months": [
+   {
+    "month": "Apr",
+    "mtd": false,
+    "gmv": 27220000,
+    "net_gmv": 25110000,
+    "orders": 25675,
+    "m2o": 0.1281
+   },
+   {
+    "month": "May",
+    "mtd": false,
+    "gmv": 28960000,
+    "net_gmv": 26990000,
+    "orders": 27780,
+    "m2o": 0.1322
+   },
+   {
+    "month": "Jun",
+    "mtd": false,
+    "gmv": 24270000,
+    "net_gmv": 22230000,
+    "orders": 23074,
+    "m2o": 0.1178
+   },
+   {
+    "month": "Jul",
+    "mtd": false,
+    "gmv": 19210000,
+    "net_gmv": 17740000,
+    "orders": 18104,
+    "m2o": 0.1069
+   },
+   {
+    "month": "Aug",
+    "mtd": false,
+    "gmv": 20660000,
+    "net_gmv": 18990000,
+    "orders": 18709,
+    "m2o": 0.1158
+   },
+   {
+    "month": "Sep",
+    "mtd": false,
+    "gmv": 18680000,
+    "net_gmv": 17180000,
+    "orders": 17001,
+    "m2o": 0.1051
+   },
+   {
+    "month": "Oct MTD",
+    "mtd": true,
+    "gmv": 4790000,
+    "net_gmv": 4450000,
+    "orders": 4671,
+    "m2o": 0.111
+   }
+  ],
+  "portfolio_gmv_loss_snapshot": 134126,
+  "portfolio_order_loss_snapshot": 193.6,
+  "snapshot_brands": 84
+ }
+}

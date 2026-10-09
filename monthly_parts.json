@@ -1,0 +1,33 @@
+{
+ "title": "West Brand RCA \u2014 Monthly Trend",
+ "scope": {
+  "poc": "devlekar.a@swiggy.in",
+  "region": "West / Gourmet",
+  "classifier": "City_Premium",
+  "source_artifact": "IDDI IU Loss \u2014 Part 1 of 3: Brand Overall + Brand X RID (2026-09-13 to 2026-09-27)"
+ },
+ "updated_at": "2026-10-08",
+ "source": "uploads/Untitled spreadsheet - Sheet1.csv + data.json",
+ "parts": [
+  {
+   "file": "monthly_part_full_series.json",
+   "part": "full_series",
+   "description": "Full monthly series (Apr-Oct MTD) for the brand present in the uploaded monthly workbook"
+  },
+  {
+   "file": "monthly_part_snapshot_brands.json",
+   "part": "snapshot_brands",
+   "description": "Snapshot loss rows for the other West brands (from the IDDI IU Loss artifact)"
+  },
+  {
+   "file": "monthly_part_top_degrowth.json",
+   "part": "top_degrowth",
+   "description": "Top 10 West brands by GMV loss (snapshot ranking)"
+  },
+  {
+   "file": "monthly_part_platform_benchmark.json",
+   "part": "platform_benchmark",
+   "description": "West platform monthly benchmark (portfolio aggregate view)"
+  }
+ ]
+}
