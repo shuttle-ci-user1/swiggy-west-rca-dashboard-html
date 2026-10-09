@@ -1,0 +1,86 @@
+{
+ "part": "top_degrowth",
+ "description": "Top 10 West brands by GMV loss (snapshot ranking)",
+ "brands": [
+  {
+   "rank": 1,
+   "brand": "Persian Darbar",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "cuisine": "Mughlai / North Indian",
+   "gmv_loss": 16794,
+   "order_loss": 20.39
+  },
+  {
+   "rank": 2,
+   "brand": "Nino Burgers",
+   "kam": "anshul.soni@swiggy.in",
+   "cuisine": "Burgers / Fast Food",
+   "gmv_loss": 14717,
+   "order_loss": 28.36
+  },
+  {
+   "rank": 3,
+   "brand": "Poetry By Love & Cheesecake",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "cuisine": "Bakery / Cafe",
+   "gmv_loss": 14167,
+   "order_loss": 18.28
+  },
+  {
+   "rank": 4,
+   "brand": "Good Flippin' Burgers",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "cuisine": "Burgers / Fast Food",
+   "gmv_loss": 9805,
+   "order_loss": 16.55
+  },
+  {
+   "rank": 5,
+   "brand": "TwentySeven Bakehouse",
+   "kam": "khushi.surana@swiggy.in",
+   "cuisine": "Bakery / Cafe",
+   "gmv_loss": 6630,
+   "order_loss": 11.47
+  },
+  {
+   "rank": 6,
+   "brand": "Love & Cheesecake",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "cuisine": "Bakery / Cafe",
+   "gmv_loss": 5636,
+   "order_loss": 8.1
+  },
+  {
+   "rank": 7,
+   "brand": "5 Spice",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "cuisine": "Chinese / Pan Asian",
+   "gmv_loss": 5299,
+   "order_loss": 7.44
+  },
+  {
+   "rank": 8,
+   "brand": "Pret A Manger",
+   "kam": "anshul.soni@swiggy.in",
+   "cuisine": "Cafe / Bakery",
+   "gmv_loss": 4660,
+   "order_loss": 7.31
+  },
+  {
+   "rank": 9,
+   "brand": "RocketMan Pizza",
+   "kam": "TBH-Mumbai",
+   "cuisine": "Pizza / Italian",
+   "gmv_loss": 4605,
+   "order_loss": 4.86
+  },
+  {
+   "rank": 10,
+   "brand": "Mer Konfekt",
+   "kam": "anshul.soni@swiggy.in",
+   "cuisine": "Desserts / Bakery",
+   "gmv_loss": 3427,
+   "order_loss": 9.43
+  }
+ ]
+}

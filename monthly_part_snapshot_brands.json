@@ -1,0 +1,846 @@
+{
+ "part": "snapshot_brands",
+ "description": "Snapshot loss rows for the other West brands (from the IDDI IU Loss artifact)",
+ "brands": [
+  {
+   "brand": "Persian Darbar",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Mughlai / North Indian",
+   "parent_id": 711,
+   "data_status": "snapshot",
+   "gmv_loss": 16794,
+   "order_loss": 20.39
+  },
+  {
+   "brand": "Nino Burgers",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Burgers / Fast Food",
+   "parent_id": 12333,
+   "data_status": "snapshot",
+   "gmv_loss": 14717,
+   "order_loss": 28.36
+  },
+  {
+   "brand": "Poetry By Love & Cheesecake",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 11330,
+   "data_status": "snapshot",
+   "gmv_loss": 14167,
+   "order_loss": 18.28
+  },
+  {
+   "brand": "Good Flippin' Burgers",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Burgers / Fast Food",
+   "parent_id": 11748,
+   "data_status": "snapshot",
+   "gmv_loss": 9805,
+   "order_loss": 16.55
+  },
+  {
+   "brand": "TwentySeven Bakehouse",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 389603,
+   "data_status": "snapshot",
+   "gmv_loss": 6630,
+   "order_loss": 11.47
+  },
+  {
+   "brand": "Love & Cheesecake",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 126152,
+   "data_status": "snapshot",
+   "gmv_loss": 5636,
+   "order_loss": 8.1
+  },
+  {
+   "brand": "5 Spice",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Chinese / Pan Asian",
+   "parent_id": 15,
+   "data_status": "snapshot",
+   "gmv_loss": 5299,
+   "order_loss": 7.44
+  },
+  {
+   "brand": "Pret A Manger",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 458911,
+   "data_status": "snapshot",
+   "gmv_loss": 4660,
+   "order_loss": 7.31
+  },
+  {
+   "brand": "RocketMan Pizza",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 302935,
+   "data_status": "snapshot",
+   "gmv_loss": 4605,
+   "order_loss": 4.86
+  },
+  {
+   "brand": "Mer Konfekt",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 11221,
+   "data_status": "snapshot",
+   "gmv_loss": 3427,
+   "order_loss": 9.43
+  },
+  {
+   "brand": "Kitchen Garden by Suzette",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Healthy / Cafe",
+   "parent_id": 5477,
+   "data_status": "snapshot",
+   "gmv_loss": 3290,
+   "order_loss": 3.67
+  },
+  {
+   "brand": "Meetha By Radisson",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 264210,
+   "data_status": "snapshot",
+   "gmv_loss": 3088,
+   "order_loss": 4.05
+  },
+  {
+   "brand": "SeoulMate Korean Restaurant",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Korean / Asian",
+   "parent_id": 759359,
+   "data_status": "snapshot",
+   "gmv_loss": 3083,
+   "order_loss": 3.02
+  },
+  {
+   "brand": "Food Square Cafe",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 683835,
+   "data_status": "snapshot",
+   "gmv_loss": 2850,
+   "order_loss": 3.72
+  },
+  {
+   "brand": "G-Shot Coffee Roastery",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Coffee / Cafe",
+   "parent_id": 91107,
+   "data_status": "snapshot",
+   "gmv_loss": 2492,
+   "order_loss": 2.11
+  },
+  {
+   "brand": "Noa by The Nutcracker",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 521449,
+   "data_status": "snapshot",
+   "gmv_loss": 2061,
+   "order_loss": 3.04
+  },
+  {
+   "brand": "Ajji House By Subko",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 593962,
+   "data_status": "snapshot",
+   "gmv_loss": 2012,
+   "order_loss": 2.38
+  },
+  {
+   "brand": "Bina's Fresh Batch Ice Cream",
+   "kam": "kalp.nimeshshah@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Ice Cream / Desserts",
+   "parent_id": 586496,
+   "data_status": "snapshot",
+   "gmv_loss": 1994,
+   "order_loss": 3.11
+  },
+  {
+   "brand": "Francesco's Pizzeria",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 2464,
+   "data_status": "snapshot",
+   "gmv_loss": 1876,
+   "order_loss": 2.32
+  },
+  {
+   "brand": "The Nutcracker",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Multi-cuisine",
+   "parent_id": 212019,
+   "data_status": "snapshot",
+   "gmv_loss": 1845,
+   "order_loss": 1.85
+  },
+  {
+   "brand": "De Cakery",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Desserts",
+   "parent_id": 5382,
+   "data_status": "snapshot",
+   "gmv_loss": 1742,
+   "order_loss": 1.72
+  },
+  {
+   "brand": "The Craftery By Subko",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 557359,
+   "data_status": "snapshot",
+   "gmv_loss": 1686,
+   "order_loss": 2.28
+  },
+  {
+   "brand": "Ether Atelier Chocolate",
+   "kam": "kalp.nimeshshah@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 11131,
+   "data_status": "snapshot",
+   "gmv_loss": 1631,
+   "order_loss": 0.89
+  },
+  {
+   "brand": "Nav Gomantak Seafood Restaurant",
+   "kam": "kalp.nimeshshah@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Seafood / Indian",
+   "parent_id": 666065,
+   "data_status": "snapshot",
+   "gmv_loss": 1363,
+   "order_loss": 1.92
+  },
+  {
+   "brand": "Chocolateria San Churro",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 2955,
+   "data_status": "snapshot",
+   "gmv_loss": 1323,
+   "order_loss": 2.11
+  },
+  {
+   "brand": "KHA - Burgers, Fries, Fried Chicken",
+   "kam": "kalp.nimeshshah@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Burgers / Fast Food",
+   "parent_id": 476557,
+   "data_status": "snapshot",
+   "gmv_loss": 1128,
+   "order_loss": 2.46
+  },
+  {
+   "brand": "Elementaria Bakery & Cafe",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 4470,
+   "data_status": "snapshot",
+   "gmv_loss": 1076,
+   "order_loss": 1.69
+  },
+  {
+   "brand": "Punjab Tandoor Company",
+   "kam": "kalp.nimeshshah@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "North Indian",
+   "parent_id": 214453,
+   "data_status": "snapshot",
+   "gmv_loss": 1020,
+   "order_loss": 1.22
+  },
+  {
+   "brand": "Hundo Pizza",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 104088,
+   "data_status": "snapshot",
+   "gmv_loss": 973,
+   "order_loss": 1.02
+  },
+  {
+   "brand": "Royal Carriage Bandra",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Multi-cuisine",
+   "parent_id": 661842,
+   "data_status": "snapshot",
+   "gmv_loss": 924,
+   "order_loss": 2.16
+  },
+  {
+   "brand": "Flax - Healthy Living",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Healthy Food",
+   "parent_id": 80553,
+   "data_status": "snapshot",
+   "gmv_loss": 845,
+   "order_loss": 1.42
+  },
+  {
+   "brand": "Kaizen Wellness",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Healthy / Cafe",
+   "parent_id": 442132,
+   "data_status": "snapshot",
+   "gmv_loss": 841,
+   "order_loss": 1.15
+  },
+  {
+   "brand": "Si Nonna's - The Original Sourdough Pizza",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 511160,
+   "data_status": "snapshot",
+   "gmv_loss": 646,
+   "order_loss": 0.63
+  },
+  {
+   "brand": "Persia Darbar",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Mughlai / North Indian",
+   "parent_id": 3593,
+   "data_status": "snapshot",
+   "gmv_loss": 558,
+   "order_loss": 0.86
+  },
+  {
+   "brand": "Shivers Garden Restaurant",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Indian / Multi-cuisine",
+   "parent_id": 183780,
+   "data_status": "snapshot",
+   "gmv_loss": 552,
+   "order_loss": 0.61
+  },
+  {
+   "brand": "FLYP Coffee",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Coffee / Cafe",
+   "parent_id": 612336,
+   "data_status": "snapshot",
+   "gmv_loss": 524,
+   "order_loss": 1.41
+  },
+  {
+   "brand": "Sopo",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 456860,
+   "data_status": "snapshot",
+   "gmv_loss": 492,
+   "order_loss": 0.34
+  },
+  {
+   "brand": "Entisi Chocolatier",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 413280,
+   "data_status": "snapshot",
+   "gmv_loss": 455,
+   "order_loss": 0.35
+  },
+  {
+   "brand": "Eddie's (Cruzet Foods)",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Burgers / Fast Food",
+   "parent_id": 509719,
+   "data_status": "snapshot",
+   "gmv_loss": 450,
+   "order_loss": 0.33
+  },
+  {
+   "brand": "Sushi and More",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Japanese / Sushi",
+   "parent_id": 21739,
+   "data_status": "snapshot",
+   "gmv_loss": 446,
+   "order_loss": 0.4
+  },
+  {
+   "brand": "Goenchin",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Chinese / Pan Asian",
+   "parent_id": 88096,
+   "data_status": "snapshot",
+   "gmv_loss": 369,
+   "order_loss": 0.3
+  },
+  {
+   "brand": "Beanly Coffee",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Coffee / Cafe",
+   "parent_id": 539535,
+   "data_status": "snapshot",
+   "gmv_loss": 369,
+   "order_loss": 0.78
+  },
+  {
+   "brand": "Madurai Bhavan",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "South Indian",
+   "parent_id": 128995,
+   "data_status": "snapshot",
+   "gmv_loss": 320,
+   "order_loss": 0.85
+  },
+  {
+   "brand": "Dolcissimo Bakes",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Desserts",
+   "parent_id": 73807,
+   "data_status": "snapshot",
+   "gmv_loss": 309,
+   "order_loss": 0.22
+  },
+  {
+   "brand": "Suzette Cafe and Bakery",
+   "kam": "dhananjay.chavan@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 771946,
+   "data_status": "snapshot",
+   "gmv_loss": 288,
+   "order_loss": 0.31
+  },
+  {
+   "brand": "1441 Pizzeria",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 2697,
+   "data_status": "snapshot",
+   "gmv_loss": 241,
+   "order_loss": 0.3
+  },
+  {
+   "brand": "Slice By The Dough Therapy",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Bakery",
+   "parent_id": 537634,
+   "data_status": "snapshot",
+   "gmv_loss": 228,
+   "order_loss": 0.35
+  },
+  {
+   "brand": "House of Amel",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 314027,
+   "data_status": "snapshot",
+   "gmv_loss": 218,
+   "order_loss": 0.2
+  },
+  {
+   "brand": "Paul And Mike Chocolates",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 748629,
+   "data_status": "snapshot",
+   "gmv_loss": 217,
+   "order_loss": 0.23
+  },
+  {
+   "brand": "Handmade",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 93136,
+   "data_status": "snapshot",
+   "gmv_loss": 211,
+   "order_loss": 0.28
+  },
+  {
+   "brand": "The BlueBop Cafe",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 205606,
+   "data_status": "snapshot",
+   "gmv_loss": 199,
+   "order_loss": 0.18
+  },
+  {
+   "brand": "Madras Diaries",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "South Indian / Cafe",
+   "parent_id": 11148,
+   "data_status": "snapshot",
+   "gmv_loss": 190,
+   "order_loss": 0.48
+  },
+  {
+   "brand": "Mizu",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Japanese / Pan Asian",
+   "parent_id": 137306,
+   "data_status": "snapshot",
+   "gmv_loss": 175,
+   "order_loss": 0.08
+  },
+  {
+   "brand": "Lazeez Affaire - Since 1999",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "North Indian / Mughlai",
+   "parent_id": 802086,
+   "data_status": "snapshot",
+   "gmv_loss": 172,
+   "order_loss": 0.11
+  },
+  {
+   "brand": "Cafe Saint Cloud",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 517764,
+   "data_status": "snapshot",
+   "gmv_loss": 141,
+   "order_loss": 0.21
+  },
+  {
+   "brand": "The Fusion Kitchen",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Multi-cuisine",
+   "parent_id": 208846,
+   "data_status": "snapshot",
+   "gmv_loss": 138,
+   "order_loss": 0.15
+  },
+  {
+   "brand": "Bluebop Bakes",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 456894,
+   "data_status": "snapshot",
+   "gmv_loss": 136,
+   "order_loss": 0.2
+  },
+  {
+   "brand": "Sorry Sugar - Naturally Sweetened Coffee",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Coffee / Bakery",
+   "parent_id": 809639,
+   "data_status": "snapshot",
+   "gmv_loss": 134,
+   "order_loss": 0.4
+  },
+  {
+   "brand": "Thyme And Whisk",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 216036,
+   "data_status": "snapshot",
+   "gmv_loss": 132,
+   "order_loss": 0.12
+  },
+  {
+   "brand": "Bloom Cafe & Cakery",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 281042,
+   "data_status": "snapshot",
+   "gmv_loss": 110,
+   "order_loss": 0.17
+  },
+  {
+   "brand": "Earth Mama Cafe",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Healthy / Cafe",
+   "parent_id": 624354,
+   "data_status": "snapshot",
+   "gmv_loss": 100,
+   "order_loss": 0.11
+  },
+  {
+   "brand": "Fromage",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 8991,
+   "data_status": "snapshot",
+   "gmv_loss": 97,
+   "order_loss": 0.16
+  },
+  {
+   "brand": "The Pantry - Guiltfree Goodness",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Healthy / Cafe",
+   "parent_id": 22312,
+   "data_status": "snapshot",
+   "gmv_loss": 96,
+   "order_loss": 0.15
+  },
+  {
+   "brand": "JC's - JustCakes $ Snacks",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Bakery / Cafe",
+   "parent_id": 750251,
+   "data_status": "snapshot",
+   "gmv_loss": 88,
+   "order_loss": 0.17
+  },
+  {
+   "brand": "Woodside Burger Shop",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Burgers / Fast Food",
+   "parent_id": 272085,
+   "data_status": "snapshot",
+   "gmv_loss": 87,
+   "order_loss": 0.13
+  },
+  {
+   "brand": "Peng You Quan (Friends Restaurant)",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Chinese / Pan Asian",
+   "parent_id": 690173,
+   "data_status": "snapshot",
+   "gmv_loss": 70,
+   "order_loss": 0.05
+  },
+  {
+   "brand": "Common Time",
+   "kam": "dhruv.saluja@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 734160,
+   "data_status": "snapshot",
+   "gmv_loss": 68,
+   "order_loss": 0.11
+  },
+  {
+   "brand": "Flax Healthy Living",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Healthy Food",
+   "parent_id": 505416,
+   "data_status": "snapshot",
+   "gmv_loss": 50,
+   "order_loss": 0.08
+  },
+  {
+   "brand": "Pack-A-Pav",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Indian Street Food",
+   "parent_id": 3590,
+   "data_status": "snapshot",
+   "gmv_loss": 46,
+   "order_loss": 0.1
+  },
+  {
+   "brand": "Hurrem's Baklava & Confectionery",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Desserts / Bakery",
+   "parent_id": 669306,
+   "data_status": "snapshot",
+   "gmv_loss": 30,
+   "order_loss": 0.02
+  },
+  {
+   "brand": "Vivi - Neapolitan Pizzeria",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 558062,
+   "data_status": "snapshot",
+   "gmv_loss": 17,
+   "order_loss": 0.02
+  },
+  {
+   "brand": "YUI",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Fine Dining / Pan Asian",
+   "parent_id": 274559,
+   "data_status": "snapshot",
+   "gmv_loss": 14,
+   "order_loss": 0.01
+  },
+  {
+   "brand": "The Bombay Cartel - Multicuisine Pure Veg",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Indian / Multi-cuisine",
+   "parent_id": 738153,
+   "data_status": "snapshot",
+   "gmv_loss": 14,
+   "order_loss": 0.01
+  },
+  {
+   "brand": "Tribes - A Street Story",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Indian / Multi-cuisine",
+   "parent_id": 460089,
+   "data_status": "snapshot",
+   "gmv_loss": 12,
+   "order_loss": 0.08
+  },
+  {
+   "brand": "The Dough Therapy",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Bakery",
+   "parent_id": 21911,
+   "data_status": "snapshot",
+   "gmv_loss": 7,
+   "order_loss": 0
+  },
+  {
+   "brand": "Kake Da Hotel (Since 1931)",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "North Indian",
+   "parent_id": 53701,
+   "data_status": "snapshot",
+   "gmv_loss": 6,
+   "order_loss": 0.01
+  },
+  {
+   "brand": "Cafe Mommy Joon",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Multi-cuisine",
+   "parent_id": 53701,
+   "data_status": "snapshot",
+   "gmv_loss": 6,
+   "order_loss": 0
+  },
+  {
+   "brand": "Spice Laundry",
+   "kam": "TBH-Mumbai",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Multi-cuisine",
+   "parent_id": 262695,
+   "data_status": "snapshot",
+   "gmv_loss": 5,
+   "order_loss": 0
+  },
+  {
+   "brand": "ODD Pizza",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pizza / Italian",
+   "parent_id": 529140,
+   "data_status": "snapshot",
+   "gmv_loss": 3,
+   "order_loss": 0
+  },
+  {
+   "brand": "Grabbit",
+   "kam": "dwayne.nazareth@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Fast Food / Cafe",
+   "parent_id": 688783,
+   "data_status": "snapshot",
+   "gmv_loss": 3,
+   "order_loss": 0
+  },
+  {
+   "brand": "Nuvola Gelato - Italian Ice Cream",
+   "kam": "rohit.deshmukh@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Ice Cream / Desserts",
+   "parent_id": 560718,
+   "data_status": "snapshot",
+   "gmv_loss": 3,
+   "order_loss": 0.01
+  },
+  {
+   "brand": "Mahesh Lunch Home",
+   "kam": "anshul.soni@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Seafood / Indian",
+   "parent_id": 615,
+   "data_status": "snapshot",
+   "gmv_loss": 1,
+   "order_loss": 0
+  },
+  {
+   "brand": "Yazu - Pan Asian Supper Club",
+   "kam": "khushi.surana@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Pan Asian",
+   "parent_id": 1373335,
+   "data_status": "snapshot",
+   "gmv_loss": null,
+   "order_loss": null
+  },
+  {
+   "brand": "Nom Nom",
+   "kam": "sparsh.thakral@swiggy.in",
+   "city": "Mumbai",
+   "cuisine": "Cafe / Bakery",
+   "parent_id": 882004,
+   "data_status": "snapshot",
+   "gmv_loss": null,
+   "order_loss": null
+  }
+ ]
+}

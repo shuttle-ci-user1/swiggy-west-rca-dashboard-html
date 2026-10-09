@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="https://raw.githubusercontent.com/shuttle-ci-user1/swiggy-west-rca-dashboard-html/main/">
+<title>West Brand RCA — Monthly Trend</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#172238;--muted:#667085;--line:#e6e8ef;--green:#0f766e;--red:#b42318;--amber:#b45309;--blue:#1d4ed8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:24px}
+header{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end;margin-bottom:16px}
+h1{font-size:26px;margin:0}
+.sub{color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+input,select{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;background:#fff}
+input[type=search]{min-width:280px;flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi .label{color:var(--muted);font-size:12px}
+.kpi .value{font-size:20px;font-weight:700;margin-top:4px}
+.delta{font-size:12px;margin-top:3px}
+.up{color:var(--green);font-weight:600}.down{color:var(--red);font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.card h3{margin:0 0 8px;font-size:16px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{padding:9px 10px;border-bottom:1px solid #f2f4f7;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{background:#f9fafb;font-size:12px;color:#475467;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+tr.click{cursor:pointer}
+tr.click:hover{background:#f9fafb}
+tr.sel{background:#eef6ff}
+.pill{display:inline-block;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:600}
+.pill.bad{background:#fee4e2;color:#b42318}
+.pill.warn{background:#fff6e6;color:#b45309}
+.pill.ok{background:#e6f6f3;color:#0f766e}
+.pill.muted{background:#f2f4f7;color:#475467}
+.note{background:#eff8ff;border:1px solid #b2ddff;border-radius:14px;padding:14px;margin-top:14px}
+.callout{background:#fffaeb;border:1px solid #fedf89;border-radius:14px;padding:14px;margin-top:14px}
+.footer{color:var(--muted);font-size:12px;margin-top:20px}
+.hidden{display:none}
+.scroller{overflow-x:auto}
+ul.tight{margin:6px 0 0 18px;padding:0}
+li{margin:5px 0}
+.bar{display:inline-block;height:8px;border-radius:4px;background:#e6e8ef;vertical-align:middle;margin-left:6px}
+.bar i{display:block;height:8px;border-radius:4px;background:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>West Brand RCA — Monthly Trend</h1>
+    <div class="sub">All brands under <strong>devlekar.a@swiggy.in</strong> — monthly trend, MoM deltas &amp; degrowth ranking</div>
+  </div>
+  <div class="sub">Updated: <span id="updated"></span> · <a href="./index.html">Daily view</a></div>
+</header>
+
+<div class="toolbar">
+  <input id="search" type="search" placeholder="Search brand, KAM, cuisine, month, metric…">
+  <select id="kam"><option value="">All KAMs</option></select>
+  <select id="cuisine"><option value="">All Cuisines</option></select>
+  <select id="metric">
+    <option value="gmv">GMV</option>
+    <option value="orders">Orders</option>
+    <option value="m2o">M2O</option>
+  </select>
+</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid">
+  <div class="card" style="grid-column:1/-1">
+    <h3>Brand list &amp; monthly view</h3>
+    <div class="scroller">
+    <table id="brands">
+      <thead><tr><th>Brand</th><th>KAM</th><th>Cuisine</th><th>Sep GMV</th><th>Sep orders</th><th>GMV MoM</th><th>Orders MoM</th><th>M2O MoM</th><th>GMV loss (snapshot)</th><th>Status</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card" style="grid-column:1/-1">
+    <h3 id="trendTitle">Monthly trend</h3>
+    <div class="scroller">
+    <table id="trend"></table>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card"><h3>Top degrowth brands (snapshot)</h3>
+    <div class="scroller">
+    <table id="topdegrowth"></table>
+    </div>
+  </div>
+  <div class="card"><h3>Platform monthly benchmark</h3>
+    <div class="scroller">
+    <table id="bench"></table>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card"><h3>Ads, discounts &amp; burn (Aug → Sep)</h3><table id="ads"></table></div>
+  <div class="card"><h3>Operational health (Aug → Sep)</h3><table id="ops"></table></div>
+  <div class="card"><h3>Recommended interventions</h3><ul id="actions" class="tight"></ul></div>
+  <div class="card"><h3>Data model &amp; automation</h3>
+    <p>This monthly view is assembled from part files. Replace the parts to refresh; no code change needed.</p>
+    <ul class="tight">
+      <li><code>monthly_parts.json</code> — manifest (scope, updated_at, part list)</li>
+      <li><code>monthly_part_full_series.json</code> — full monthly series (workbook brand)</li>
+      <li><code>monthly_part_snapshot_brands.json</code> — snapshot loss rows for the other West brands</li>
+      <li><code>monthly_part_top_degrowth.json</code> — top 10 degrowth ranking</li>
+      <li><code>monthly_part_platform_benchmark.json</code> — platform monthly benchmark</li>
+    </ul>
+    <p class="sub">Monthly flow: run the West RCA monthly query → export CSV → regenerate part files → dashboard auto-refreshes on load.</p>
+  </div>
+</div>
+
+<div class="callout" id="scopeNote"></div>
+<div class="footer">Scope: devlekar.a@swiggy.in — West / Gourmet. Built from the uploaded monthly workbook (Apr–Oct MTD series for the workbook brand) + the IDDI IU Loss snapshot in data.json. Month-level metrics for the other brands arrive when the monthly feed is connected.</div>
+</div>
+<script>
+let DATA=null,BRAND=null,METRIC='gmv';
+const fmt=(n)=>n==null?'—':new Intl.NumberFormat('en-IN').format(n);
+const pct=(n)=>n==null?'—':(n*100).toFixed(2)+'%';
+const money=(n)=>n==null?'—':'₹'+fmt(Math.round(n));
+const rel=(a,b)=>(a==null||b==null||b===0)?null:(a-b)/b;
+const cls=(d)=>d==null?'':(d<0?'down':'up');
+const sgn=(d)=>d==null?'':(d<0?'':'+')+fmt(Math.round(d*1000)/10)+'%';
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function moTxt(row,k){return row['mom_'+k]==null?'':sgn(row['mom_'+k]);}
+
+function flatten(){
+  // Brand rows: the workbook brand with month series, plus snapshot brands.
+  const full=DATA.full.brand, months=full.months, last=months[months.length-2]||months[months.length-1];
+  const rows=[{
+    brand:full.brand,cuisine:null,kam:null,city:null,data_status:'full',
+    sep_gmv:last.gmv,sep_orders:last.orders,mom_gmv:last.mom_gmv,mom_orders:last.mom_orders,mom_m2o:last.mom_m2o,gmv_loss:null,order_loss:null
+  }];
+  for(const s of DATA.snapshot){
+    rows.push({brand:s.brand,cuisine:s.cuisine,kam:s.kam,city:s.city,data_status:'snapshot',
+      sep_gmv:null,sep_orders:null,mom_gmv:null,mom_orders:null,mom_m2o:null,gmv_loss:s.gmv_loss,order_loss:s.order_loss});
+  }
+  return rows;
+}
+function uniq(rows,k){const s=new Set(rows.map(r=>r[k]).filter(Boolean));return [...s].sort();}
+
+function renderFilters(rows){
+  document.getElementById('updated').textContent=DATA.updated_at;
+  const kam=document.getElementById('kam'),cui=document.getElementById('cuisine');
+  kam.innerHTML='<option value="">All KAMs</option>'+uniq(rows,'kam').map(x=>`<option>${esc(x)}</option>`).join('');
+  cui.innerHTML='<option value="">All Cuisines</option>'+uniq(rows,'cuisine').map(x=>`<option>${esc(x)}</option>`).join('');
+}
+
+function renderKpis(){
+  const full=DATA.full.brand,ms=full.months;
+  const sep=ms.find(m=>m.month==='Sep'),aug=ms.find(m=>m.month==='Aug');
+  const top=DATA.topDegrowth[0];
+  document.getElementById('kpis').innerHTML=`
+    <div class="kpi"><div class="label">Workbook brand</div><div class="value">${esc(full.brand)}</div><div class="delta">Full monthly series Apr–Oct MTD</div></div>
+    <div class="kpi"><div class="label">Sep orders vs Aug</div><div class="value">${fmt(sep.orders)}</div><div class="delta ${cls(sep.mom_orders)}">${sgn(sep.mom_orders)} MoM</div></div>
+    <div class="kpi"><div class="label">Sep GMV vs Aug</div><div class="value">${money(sep.gmv)}</div><div class="delta ${cls(sep.mom_gmv)}">${sgn(sep.mom_gmv)} MoM</div></div>
+    <div class="kpi"><div class="label">Sep M2O vs Aug</div><div class="value">${pct(sep.m2o)}</div><div class="delta ${cls(sep.mom_m2o)}">${sgn(sep.mom_m2o)} MoM</div></div>
+    <div class="kpi"><div class="label">Portfolio GMV loss (snapshot)</div><div class="value">${money(DATA.benchmark.portfolio_gmv_loss_snapshot)}</div><div class="delta">${DATA.benchmark.snapshot_brands} brands · ${fmt(DATA.benchmark.portfolio_order_loss_snapshot)} orders</div></div>
+    <div class="kpi"><div class="label">Top degrowth (snapshot)</div><div class="value">${esc(top.brand)}</div><div class="delta down">${money(top.gmv_loss)} GMV loss</div></div>`;
+}
+
+function renderBrands(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  const kam=document.getElementById('kam').value,cui=document.getElementById('cuisine').value;
+  const rows=flatten().filter(r=>{
+    const text=[r.brand,r.kam,r.cuisine,r.city,r.data_status].filter(Boolean).join(' ').toLowerCase();
+    return (!q||text.includes(q))&&(!kam||r.kam===kam)&&(!cui||r.cuisine===cui);
+  }).sort((a,b)=>(b.sep_gmv??(b.gmv_loss!=null?-b.gmv_loss:0))-(a.sep_gmv??(a.gmv_loss!=null?-a.gmv_loss:0)));
+  document.querySelector('#brands tbody').innerHTML=rows.map(r=>`
+    <tr class="click ${BRAND===r.brand?'sel':''}" data-brand="${esc(r.brand)}">
+      <td>${esc(r.brand)}</td><td>${esc(r.kam||'')}</td><td>${esc(r.cuisine||'')}</td>
+      <td>${r.sep_gmv!=null?money(r.sep_gmv):'—'}</td>
+      <td>${r.sep_orders!=null?fmt(r.sep_orders):'—'}</td>
+      <td class="${cls(r.mom_gmv)}">${r.mom_gmv!=null?sgn(r.mom_gmv):'—'}</td>
+      <td class="${cls(r.mom_orders)}">${r.mom_orders!=null?sgn(r.mom_orders):'—'}</td>
+      <td class="${cls(r.mom_m2o)}">${r.mom_m2o!=null?sgn(r.mom_m2o):'—'}</td>
+      <td>${r.gmv_loss!=null?money(r.gmv_loss):'—'}</td>
+      <td><span class="pill ${r.data_status==='full'?'ok':'muted'}">${r.data_status}</span></td>
+    </tr>`).join('')||'<tr><td colspan="10" class="sub">No brands match the current filters.</td></tr>';
+}
+
+function renderTrend(){
+  const b=BRAND,full=DATA.full.brand;
+  document.getElementById('trendTitle').textContent=b?('Monthly trend — '+b):'Monthly trend';
+  if(b===full.brand){
+    const ms=full.months,metrics=[['OPD','opd',fmt],['Orders','orders',fmt],['GMV','gmv',money],['Net GMV','net_gmv',money],['Gross AOV','gross_aov',money],['Net AOV','net_aov',money],['M2C','m2c',pct],['C2O','c2o',pct],['P2O','p2o',pct],['M2O','m2o',pct]];
+    document.getElementById('trend').innerHTML=`<thead><tr><th>Metric</th>${ms.map(m=>`<th>${esc(m.month)}${m.mtd?' *':''}</th>`).join('')}<th>MoM</th></tr></thead><tbody>
+      ${metrics.map(([label,k,f])=>{const last=ms[ms.length-1],d=last['mom_'+k];return `<tr><td>${label}</td>${ms.map(m=>`<td>${f(m[k])}</td>`).join('')}<td class="${cls(d)}">${d==null?'—':sgn(d)}</td></tr>`;}).join('')}
+      </tbody>`;
+  } else if(b){
+    const s=DATA.snapshot.find(x=>x.brand===b);
+    document.getElementById('trend').innerHTML=`<thead><tr><th>Detail</th><th>Value</th></tr></thead><tbody>
+      <tr><td>Data status</td><td><span class="pill muted">snapshot</span></td></tr>
+      <tr><td>KAM</td><td>${esc(s?.kam||'—')}</td></tr>
+      <tr><td>City</td><td>${esc(s?.city||'—')}</td></tr>
+      <tr><td>Cuisine</td><td>${esc(s?.cuisine||'—')}</td></tr>
+      <tr><td>GMV loss (snapshot)</td><td>${s?.gmv_loss!=null?money(s.gmv_loss):'—'}</td></tr>
+      <tr><td>Order loss (snapshot)</td><td>${s?.order_loss!=null?fmt(s.order_loss):'—'}</td></tr>
+      </tbody>
+      <tbody><tr><td colspan="2" class="sub">Month-level metrics for this brand arrive when the monthly feed is connected. The uploaded workbook carries a full monthly series for ${esc(full.brand)} only.</td></tr></tbody>`;
+  } else {
+    document.getElementById('trend').innerHTML='<thead><tr><th>Monthly trend</th></tr></thead><tbody><tr><td class="sub">Select a brand from the table.</td></tr></tbody>';
+  }
+}
+
+function renderTopDegrowth(){
+  const max=Math.max(...DATA.topDegrowth.map(t=>t.gmv_loss||0),1);
+  document.getElementById('topdegrowth').innerHTML=`<thead><tr><th>#</th><th>Brand</th><th>KAM</th><th>GMV loss</th><th>Order loss</th></tr></thead><tbody>
+    ${DATA.topDegrowth.map(t=>`<tr class="click" data-brand="${esc(t.brand)}"><td>${t.rank}</td><td>${esc(t.brand)}</td><td>${esc(t.kam||'')}</td><td class="down">${money(t.gmv_loss)}<span class="bar"><i style="width:${Math.round((t.gmv_loss/max)*100)}px"></i></span></td><td>${t.order_loss!=null?fmt(t.order_loss):'—'}</td></tr>`).join('')}
+    </tbody>`;
+}
+
+function renderBench(){
+  const bm=DATA.benchmark.months;
+  document.getElementById('bench').innerHTML=`<thead><tr><th>Month</th><th>GMV</th><th>GMV MoM</th><th>Orders</th><th>Orders MoM</th><th>M2O</th></tr></thead><tbody>
+    ${bm.map((m,i)=>{const dg=rel(m.gmv,bm[i-1]?.gmv),do_=rel(m.orders,bm[i-1]?.orders);return `<tr><td>${esc(m.month)}${m.mtd?' *':''}</td><td>${money(m.gmv)}</td><td class="${cls(dg)}">${dg==null?'—':sgn(dg)}</td><td>${fmt(m.orders)}</td><td class="${cls(do_)}">${do_==null?'—':sgn(do_)}</td><td>${pct(m.m2o)}</td></tr>`;}).join('')}
+    </tbody>`;
+}
+
+function renderExtras(){
+  const x=DATA.full.brand.aug_sep;
+  const row=(label,k,f)=>{const v=x[k];return v?`<tr><td>${label}</td><td>${f(v.aug)}</td><td>${f(v.sep)}</td><td class="${cls(v.delta)}">${sgn(v.delta)}</td></tr>`:'';};
+  document.getElementById('ads').innerHTML=`<thead><tr><th>Metric</th><th>Aug</th><th>Sep</th><th>Δ</th></tr></thead><tbody>
+    ${row('CPC impressions','cpc_impressions',fmt)}${row('CPC clicks','cpc_clicks',fmt)}${row('CPC orders','cpc_orders',fmt)}
+    ${row('CPC burn','cpc_burn',money)}${row('CPC GMV','cpc_gmv',money)}${row('CPC ROI','cpc_roi',n=>n==null?'—':n.toFixed(1))}
+    ${row('Total discounts','discounts',money)}${row('Coupon burn','coupon_burn',money)}
+    ${row('Restaurant burn','restaurant_burn',pct)}${row('Supply burn','supply_burn',pct)}
+    ${row('CDPO','cdpo',fmt)}${row('SDPO','sdpo',fmt)}</tbody>`;
+  document.getElementById('ops').innerHTML=`<thead><tr><th>Metric</th><th>Aug</th><th>Sep</th><th>Δ</th></tr></thead><tbody>
+    ${row('Availability','availability',pct)}${row('Prep time (min)','prep_time',n=>n==null?'—':n.toFixed(1))}</tbody>`;
+}
+
+function renderActions(){
+  const full=DATA.full.brand,sep=full.months.find(m=>m.month==='Sep'),aug=full.months.find(m=>m.month==='Aug');
+  const list=[];
+  if(sep&&aug){
+    if(sep.mom_m2o!=null&&sep.mom_m2o<0) list.push('M2O fell '+sgn(sep.mom_m2o)+' MoM. Audit search visibility, first-order coupon exposure, menu photos, ratings, and bestseller placement.');
+    if(sep.mom_gmv!=null&&sep.mom_gmv<0) list.push('GMV fell '+sgn(sep.mom_gmv)+' MoM on '+sgn(sep.mom_orders)+' order decline — check top RIDs by GMV contribution before discounting broadly.');
+    const m2c=rel(sep.m2c,aug.m2c); if(m2c!=null&&m2c<0) list.push('M2C down '+sgn(m2c)+' vs Aug — menu→cart is the first-step leak. Review menu quality, pricing display, and item availability.');
+    const roi=DATA.full.brand.aug_sep.cpc_roi; if(roi&&roi.delta!=null&&roi.delta<0) list.push('CPC ROI fell to '+roi.sep.toFixed(1)+' from '+roi.aug.toFixed(1)+'. Re-tune bids by zone/daypart; avoid blanket burn increase.');
+    const disc=DATA.full.brand.aug_sep.discounts; if(disc&&disc.delta!=null&&disc.delta<-0.05) list.push('Total discounts down '+sgn(disc.delta)+' while M2O also fell — test coupon depth selectively in high-conversion RIDs.');
+  }
+  const t=DATA.topDegrowth[0];
+  if(t) list.push('Top snapshot degrowth: '+t.brand+' at '+money(t.gmv_loss)+' GMV loss. Run the monthly feed to decompose its month trend.');
+  if(!list.length) list.push('No major negative monthly signal in current data.');
+  document.getElementById('actions').innerHTML=list.map(x=>`<li>${esc(x)}</li>`).join('');
+}
+
+function renderScopeNote(){
+  const full=DATA.full.brand;
+  document.getElementById('scopeNote').innerHTML=`<strong>Scope note:</strong> the uploaded monthly workbook carries a full Apr–Oct MTD series for <strong>${esc(full.brand)}</strong> only. The other ${DATA.snapshot.length} West brands show snapshot loss rows from the IDDI IU Loss artifact; their month-level trends arrive when the monthly feed is connected. <span class="pill muted">* MTD = month to date</span>`;
+}
+
+function selectBrand(name){
+  BRAND=name;
+  document.querySelectorAll('#brands tr').forEach(r=>r.classList.remove('sel'));
+  const row=document.querySelector(`#brands tr[data-brand="${CSS.escape(name)}"]`);
+  if(row) row.classList.add('sel');
+  renderBrands();renderTrend();
+}
+
+document.addEventListener('change',e=>{if(e.target.id==='metric')METRIC=e.target.value;renderBrands();});
+document.addEventListener('input',()=>renderBrands());
+document.addEventListener('click',e=>{const tr=e.target.closest('tr.click');if(tr)selectBrand(tr.dataset.brand);});
+
+(async()=>{
+  const res=await fetch('./monthly_parts.json');const manifest=await res.json();
+  const [full,snapshot,top,bench]=await Promise.all(manifest.parts.map(p=>fetch('./'+p.file).then(r=>r.json())));
+  DATA={
+    updated_at:manifest.updated_at,
+    full:full.brand?full:{brand:full},
+    snapshot:snapshot.brands,
+    topDegrowth:top.brands,
+    benchmark:bench.benchmark,
+  };
+  const rows=flatten();
+  renderFilters(rows);renderKpis();renderBrands();
+  renderTopDegrowth();renderBench();renderExtras();renderActions();renderScopeNote();
+  selectBrand(DATA.full.brand.brand);
+})();
+</script>
+</body>
+</html>
